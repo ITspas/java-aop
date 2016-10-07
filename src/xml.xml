@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans SYSTEM "aop.dtd">
+<beans>
+
+<bean class="junit.TestImpl" id="test"/>
+<bean class="junit.MyBeforeAdvice" id="before"/>
+<bean class="junit.MyAfterAdvice" id="after"/>
+<bean class="junit.MyMethodInterceptor" id="interceptor"/>
+<bean class="junit.MyExceptionAdvice" id="exception"/>
+<bean class="cn.yau.beans.ProxyFactoryBean" id="proxyFactoryBean">
+	<property name="terget" ref="test"/>
+	<property name="adviceList">
+		<list E="cn.yau.aop.advice.Advice">
+			<item ref="before"/>
+			<item ref="after"/>
+			<item ref="interceptor"/>
+			<item ref="exception"/>
+		</list>
+	</property>
+	<property name="interfaceList">
+		<list E="java.lang.String">
+			<item value="junit.TestInter"/>
+			<item value="junit.TestInter2"/>
+		</list>
+	</property>
+</bean>
+
+<!--<bean class="junit.TestClass" id="test">
+	<property name="name" value="Tom" />
+	<property name="age" value="178"/>
+</bean>
+<bean class="junit.TestList" id="test2">
+	<property name="list" >
+		<list E="junit.TestClass">
+			<item ref="test"/>
+			<item ref="test"/>
+		</list>
+	</property>
+</bean>
+<bean class="junit.TestSet" id="testSet">
+	<property name="set">
+		<set E="java.lang.String">
+			<item value="set1"/>
+			<item value="set2"/>
+			<item value="set3"/>
+			<item value="set4"/>
+		</set>
+	</property>
+</bean>
+<bean class="junit.TestMap" id="testMap">
+	<property name="map">
+		<map V="java.lang.String" K="junit.TestClass">
+			<entry key="k1" value-ref="test"/>
+			<entry key="k2" value-ref="test"/>
+			<entry key="k3" value="v3"/>
+			<entry key="k4" value="v4"/>
+		</map>
+	</property>
+</bean>
+
+
+<bean class="junit.TestArrary" id="arrary">
+	<property name="strs">
+		<list E="java.lang.String" type="java.lang.String">
+			<item value="str1"/>
+			<item value="str2"/>
+			<item value="str3"/>
+		</list>
+	</property>
+</bean>
+--></beans>

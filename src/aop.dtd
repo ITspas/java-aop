@@ -1,0 +1,31 @@
+<!ELEMENT beans (bean*,advice*)>
+<!ATTLIST bean id ID #REQUIRED>
+<!ATTLIST bean class CDATA #REQUIRED>
+<!ATTLIST bean scope (singleton|prototype) "singleton">
+<!ELEMENT bean (property*)>
+<!ATTLIST property name CDATA #REQUIRED>
+<!ATTLIST property value CDATA #IMPLIED>
+<!ATTLIST property ref CDATA #IMPLIED>
+<!ELEMENT property ((list|set|map)?)>
+<!ELEMENT list (item*)>
+<!ATTLIST list type CDATA "java.util.ArrayList">
+<!ATTLIST list E CDATA #REQUIRED>
+<!ELEMENT set (item*)>
+<!ATTLIST set type CDATA "java.util.HashSet">
+<!ATTLIST set E CDATA #REQUIRED>
+<!ATTLIST item value CDATA #IMPLIED>
+<!ATTLIST item ref CDATA #IMPLIED>
+<!ELEMENT map (entry*)>
+<!ATTLIST map K CDATA #REQUIRED>
+<!ATTLIST map V CDATA #REQUIRED>
+<!ATTLIST map type CDATA "java.util.HashMap">
+<!ATTLIST entry key CDATA #IMPLIED>
+<!ATTLIST entry key-ref CDATA #IMPLIED>
+<!ATTLIST entry value CDATA #IMPLIED>
+<!ATTLIST entry value-ref CDATA #IMPLIED>
+<!ATTLIST advice id ID #REQUIRED>
+<!ATTLIST advice class CDATA #REQUIRED>
+<!ELEMENT advice (property?)>
+
+
+
